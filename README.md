@@ -22,6 +22,7 @@ This repository contains various Data Structures and Algorithms (DSA) implementa
 
 - **Sorting and Searching**
   - `bubblesort.py`: Bubble sort algorithm.
+  - `Quick_sort.py` : Quick sort algorithm.
   - `binary_search.py`: Binary search algorithm.
 
 - **Miscellaneous**
