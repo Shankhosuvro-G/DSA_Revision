@@ -2,7 +2,7 @@ def binary_search(arr,k):
     left_index=0
     right_index=len(arr)-1
 
-    while left_index < right_index:
+    while left_index <= right_index:
         middle_index=(left_index + right_index)//2
         if arr[middle_index]==k:
             return middle_index
@@ -13,7 +13,24 @@ def binary_search(arr,k):
     return -1
 #print(binary_search([1,2,34,4,5,6],34))
 
+### binary search but k is an index
+def kth_element(k,arr1,arr2):
+    arr=arr1+arr2
+    arr.sort()
+    left=arr[0]
+    right=arr[len(arr)-1]
+    while left <= right:
+        middle_index=(left+right)//2
+        if middle_index == k-1:
+            return arr[middle_index]
+        elif middle_index < k-1:
+            left=middle_index+1
+        else:
+            right=middle_index-1
+    return -1
+#print(kth_element(6,[2,3,6,7,9],[1,4,9,10]))
 
+    
 ### all occurences
 def all_occurences(arr,k):
     lst=[]
