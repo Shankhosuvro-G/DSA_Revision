@@ -107,6 +107,28 @@ class BinarySearchTreeNode:
             is_right_sum=self.right.check_sum_tree() if self.right else True
             return is_left_sum and is_right_sum
         return False
+    def delete(self,data):
+        if data < self.data:
+            if self.left:
+                self.left=self.left.delete(data)
+        elif data > self.data:
+            if self.right:
+                self.right=self.right.delete(data)
+        else:
+            if self.left is None and self.right is None:
+                return None
+            if self.left is None:
+                return self.right
+            if self.right is None:
+                return self.left
+            #Find the minimum value
+            min_val=self.left.find_min()
+            #Copy the minimum value
+            self.data=min_val
+            #Update self.right
+            self.right=self.delete(min_val)
+        return self        
+        
 def build_tree(elements):
     root=BinarySearchTreeNode(elements[0])
     for i in range(1,len(elements)):
@@ -156,4 +178,10 @@ if __name__=="__main__":
     # Test Case 10: Check if it's a sum tree (Expect False)
     assert tree.check_sum_tree() == False, "Test Case 10 Failed"
     print("Test Case 10 Passed")
+
+    # Test Case 11: Delete a node
+    tree.delete(9)
+    assert tree.in_order_traversal() == [1, 4, 6, 17, 18, 19, 20, 22, 23, 34], "Test Case 11 Failed"
+    print("Test Case 11 Passed")
+
 
