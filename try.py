@@ -23,5 +23,24 @@ def remove_one(num):
         return num
     else:
         return lst
-print(remove_one("1110"))
+#print(remove_one("1110"))
+def operation(num,user_input):
+    if user_input=="AND":
+        a=int(num[0])
+        for i in num[1:]:
+            a&=int(i)
+        return a 
+    if user_input=="OR":
+        a=int(num[0])
+        for i in num[1:]:
+            a|=int(i)
+        return a
+    if user_input=="XOR":
+        a=int(num[0])
+        for i in num[1:]:
+            a^=int(i)
+        return a
+print(operation("1101000111","OR"))
+
+
 
