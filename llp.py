@@ -107,6 +107,26 @@ class LinkedList:
         for _ in range(length-1):
             itr=itr.next
         itr.next=itr.next.next
+    def rotate(self,k):
+        if k==0:
+            return
+        count=1
+        itr=self.head
+        while(count < k and itr is not None):
+            itr=itr.next
+            count+=1
+        kth_node=itr
+        while(itr.next is not None):
+            itr=itr.next
+        itr.next=self.head
+        self.head=kth_node.next
+        kth_node.next=None
+    def reverse(self):
+        itr=self.head
+        prev=None
+        while itr:
+            itr.next,prev,itr=prev,itr,itr.next
+        self.head=prev
 ll=LinkedList()
 ll.insert_at_beginning(5)
 ll.insert_at_beginning(6)
@@ -129,6 +149,10 @@ ll.multiply_by_2()
 ll.print()
 ll.find_middle()
 ll.delete_middle()
+ll.print()
+ll.rotate(3)
+ll.print()
+ll.reverse()
 ll.print()
               
     
