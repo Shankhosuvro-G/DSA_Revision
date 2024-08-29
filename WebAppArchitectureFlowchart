@@ -1,0 +1,13 @@
+digraph WebAppArchitecture {
+	rankdir=LR size=10
+	Frontend [label="User Interface
+(ReactJS, Tailwind CSS)" fillcolor=lightblue shape=box style=filled]
+	Backend [label="REST API & Logic Processing
+(Flask, Python)" fillcolor=lightgreen shape=box style=filled]
+	Database [label="Data Storage & Retrieval
+(SQLite3)" fillcolor=lightyellow shape=box style=filled]
+	Frontend -> Backend [label="Request Handling"]
+	Backend -> Database [label="Data Retrieval"]
+	Database -> Backend [label="Data Provided"]
+	Backend -> Frontend [label="Optimal Response Generation & User Interface Update"]
+}

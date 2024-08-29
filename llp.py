@@ -127,6 +127,23 @@ class LinkedList:
         while itr:
             itr.next,prev,itr=prev,itr,itr.next
         self.head=prev
+    def countnodesinloop(self,head):
+        slow=head
+        fast=head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+            if slow==fast:
+                return self.loop_length(slow)
+        return 0
+            
+    def loop_length(self,meeting_point):
+        itr=meeting_point
+        count=1
+        while itr.next!=meeting_point:
+            itr=itr.next
+            count+=1
+        return count
 ll=LinkedList()
 ll.insert_at_beginning(5)
 ll.insert_at_beginning(6)

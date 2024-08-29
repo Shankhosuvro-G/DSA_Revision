@@ -109,13 +109,8 @@ if __name__=="__main__":
     ll.print_forward()  
     ll.insert_values([5,6,7])
     ll.print_forward()
-    #ll.remove_at(2)
-    #ll.print_forward()
-    #ll.remove_by_value(7)
-    #ll.print_forward()
-    ll.insert_at(8,7)
+    ll.remove_at(2)
     ll.print_forward()
-    ll.insert_after_value(8,9)
-    ll.print_forward()
+    
 
 
